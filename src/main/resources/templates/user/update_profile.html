@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+<div class="formDesign"style="width:95%; margin:auto; " >
+<div class="card">
+  <div class="card-header text-center fs-4">
+   Update Here
+  </div>
+  <!--   
+   <th:block th:if="${session.msg}">
+	<p class="text-center fs-4 text-success">[[${session.msg}]]</p>
+							
+							
+			 	<th:block th:text="${#session.removeAttribute('msg')}"></th:block> -->
+
+						
+		</th:block>
+	
+	
+	
+
+						 	
+					 <!--		 <th:block th:if="${session.msg}">
+							<p class="text-center fs-4 text-success">[[${session.msg}]]</p>
+							
+							
+						 	<th:block th:text="${#session.removeAttribute('msg')}"></th:block> 
+
+						
+						</th:block>-->
+						
+				
+	
+
+
+	<div class="card-body">
+	
+
+
+<form action="editProfile" method="post">
+
+
+	<div class="row mb-3">
+		
+		<div class="col-sm-6" >
+		<input type="text" class="form-control" id="userName" name="userName" placeholder="Edit your name ">
+		</div>
+		<div class="col-sm-6">
+		<input type="text" class="form-control" id="userAge" name="userAge" placeholder="Edit your age" >
+		</div>
+    </div>
+    
+	<div class="row mb-3">
+		
+		<div class="col-sm-6" >
+		<input type="text" class="form-control" id="userPhone" name="userPhone" placeholder="Edit your phone number">
+		</div>
+		
+ 
+            <div class="col-sm-6">
+                <label for="status" ><strong>Status:</strong></label>
+             <input type="radio" name="status" value="active"  style="margin-left:20px" checked>Active
+             <input type="radio" name="status" value="inactive" style="margin-left:20px">Inactive
+         </div>
+
+	</div>
+
+    <div class="row mb-3">
+		
+		<div class="col-sm-6" >
+            <label for="">Country</label>
+            <select class="form-control" name="userDivision" id="userDivision" onchange="selectDistrict(this.id,'userDistrict')">
+                <option value="">--Choose Division</option>
+                <option value="barishal">Barishal</option>
+                <option value="chittagong">Chittagong</option>
+                <option value="dhaka">Dhaka</option>
+                <option value="khulna">Khulna</option>
+                <option value="mymensingh">Mymensingh</option>
+                <option value="rajshahi">Rajshahi</option>
+                <option value="rangpur">Rangpur</option>
+                <option value="Sylhet">Sylhet</option>
+            </select>
+		</div>
+
+		<div class="col-sm-6">
+            <label for="">District</label>
+            <select class="form-control"  name="userDistrict" id="userDistrict" onchange="selectThana(this.id,'userThana')">
+    
+            </select>
+		</div>
+    </div>
+
+	<div class="row mb-3">
+		
+		<div class="col-sm-6" >
+        <label for="">Thana/Upazila</label>
+            <select class="form-control" name="userThana" id="userThana" onchange="selectUnion(this.id,'userUnion')">
+                
+            </select>
+		</div>
+		<div class="col-sm-6">
+            <label for="">Union</label>
+            <select class="form-control" name="userUnion" id="userUnion">
+                
+            </select>
+		</div>
+    </div>
+
+	<br>
+	<button class="btn btn-lg btn-block text-white col-md-2 " style="background:#333356"  >Update</button>
+	<br>
+	
+		
+	</form>
+
+    <script type="text/javascript" src="../function.js">
+
+    </script>
+
+	</div>
+	
+	</div>
+	</div>
+	
+	
+	
+	</section>
+
+</body>
+</html>

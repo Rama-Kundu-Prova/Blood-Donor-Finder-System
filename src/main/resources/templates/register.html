@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+      
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" 
+th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+<section>
+<br>
+<br>
+<div class="formDesign"style="width:95%; margin:auto; " >
+<div class="card">
+  <div class="card-header text-center fs-4">
+   Register Here
+  </div>
+  
+ 
+				<!--  
+				<th:block th:if="${session.msg}">
+				<p class="text-center fs-4 text-success">[[${session.msg}]]</p>
+				<th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+				
+				
+				  
+				
+			</th:block>	
+			-->
+						
+
+	<div class="card-body">
+	
+
+<form action="createUser" method="post">
+
+
+	<div class="row mb-3">
+		
+		<div class="col-sm-6" >
+		<input type="text" class="form-control" id="userName" name="userName" placeholder="Enter your name "required>
+		</div>
+		<div class="col-sm-6">
+		<input type="text" class="form-control" id="userAge" name="userAge" placeholder="Enter your age" required>
+		</div>
+    </div>
+	<div class="row mb-3">
+		
+		<div class="col-sm-6" >
+		<input type="text" class="form-control" id="userPhone" name="userPhone" placeholder="Enter your phone number"required>
+		</div>
+		<div class="col-sm-6">
+            <select class="form-control" id="userBloodGroup" type="text" name="userBloodGroup" required>
+                <option value="" selected>--Choose blood group</option>
+                <option value="A positive" >A+</option>
+                <option value="A negative " >A-</option>
+                <option value="B positive">B+</option>
+                <option value="B negative" >B-</option>
+                <option value="O positive">O+</option>
+                <option value="O negative" >O-</option>
+                <option value="AB positive">AB+</option>
+                <option value="AB negative" >AB-</option>
+                </select>
+		
+		</div>
+    </div>
+
+	<div class="row mb-3">
+		
+		<div class="col-sm-6" >
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your  email" required>
+        </div>
+
+        <div class="col-sm-6" >
+            <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="Enter your  password" required>
+        </div>
+
+        </div>
+        <div class="row mb-3">
+
+            <div class="col-sm-6">
+                <label for="status" required><strong>Status:</strong></label>
+             <input type="radio" name="status" value="active"  style="margin-left:20px">Active
+             <input type="radio" name="status" value="inactive" style="margin-left:20px">Inactive
+         </div>
+
+		<div class="col-sm-6">
+		       <label for="gender"><strong>Gender:</strong></label>
+			<input type="radio" name="usergender" value="male"  style="margin-left:20px">Male
+			<input type="radio" name="usergender" value="female" style="margin-left:20px">Female
+			<input type="radio" name="usergender" value="others" style="margin-left:20px">Others
+    	</div>
+
+	</div>
+
+    <div class="row mb-3">
+		
+		<div class="col-sm-6" >
+            <label for="">Division</label>
+            <select class="form-control" name="userDivision" id="userDivision" onchange="selectDistrict(this.id,'userDistrict')">
+                <option value="">--Choose Division</option>
+                <option value="Barishal">Barishal</option>
+                <option value="Chittagong">Chittagong</option>
+                <option value="Dhaka">Dhaka</option>
+                <option value="Khulna">Khulna</option>
+                <option value="Mymensingh">Mymensingh</option>
+                <option value="Rajshahi">Rajshahi</option>
+                <option value="Rangpur">Rangpur</option>
+                <option value="Sylhet">Sylhet</option>
+            </select>
+		</div>
+
+		<div class="col-sm-6">
+            <label for="">District</label>
+            <select class="form-control"  name="userDistrict" id="userDistrict" onchange="selectThana(this.id,'userThana')">
+    
+            </select>
+		</div>
+    </div>
+
+	<div class="row mb-3">
+		
+		<div class="col-sm-6" >
+        <label for="">Thana/Upazila</label>
+            <select class="form-control" name="userThana" id="userThana" onchange="selectUnion(this.id,'userUnion')">
+                
+            </select>
+		</div>
+		<div class="col-sm-6">
+            <label for="">Union</label>
+            <select class="form-control" name="userUnion" id="userUnion">
+                
+            </select>
+		</div>
+		
+    </div>
+    
+	<br>
+	<div style="margin:auto">
+	
+	 <button class="btn btn-lg btn-block text-white" type="submit" style="width:25%; margin:center; background:#333356">Register</button>
+	</div>
+	<br>
+	</form>
+    <script type="text/javascript" src="function.js">
+    </script>
+	</div>
+	
+	</div>
+	</div>
+	
+	</section>
+	
+	
+	
+
+</body>
+</html>

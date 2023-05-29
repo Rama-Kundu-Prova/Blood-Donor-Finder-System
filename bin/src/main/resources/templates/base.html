@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+<head>
+<meta charset="ISO-8859-1">
+<title>Blood Management System</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+rel="stylesheet" 
+integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+</head>
+<body  style="font-family: 'Times New Roman', serif; background-color: #C0C0C0;">
+
+<nav class="navbar navbar-expand-lg navbar-dark fs-4" style="background:#333356">
+
+  <div class="container-fluid">
+	 
+	 
+	  <th:block th:if="${user==NULL}">
+		  <a class="navbar-brand" href="#">
+		 	 <img src="img\logo.png" alt="Something  wrong!!"width="50" height="50" >
+		  
+		  </a>
+	  </th:block>
+	  
+	  <th:block th:if="${user!=NULL}">
+		  <a class="navbar-brand" href="#">
+		 	 <img src="..\img\logo.png" alt="Something  wrong!!"width="50" height="50" >
+		  </a>
+	  
+	  </th:block>
+
+     <a class="navbar-brand" href="#"><strong>Blood Management System</strong></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+   
+     
+     <th:block th:if="${user==NULL}">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+   <li class="nav-item"> <a class="nav-link active" aria-current="page" href="index">Home</a>  </li>
+    </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+       
+        <li class="nav-item"> <a class="nav-link" href="register">Register</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="signin">Login</a> </li>
+       
+   
+      </ul>
+      </th:block>
+      
+       <th:block th:if="${user!=NULL}">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+   <li class="nav-item"> <a class="nav-link active" aria-current="page" href="../user/">Home</a>  </li>
+   
+    <li class="nav-item"> <a class="nav-link active" aria-current="page" href="../user/search">Search </a>  </li>
+   
+    
+    </ul>
+      
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+       <li class="nav-item dropdown me-4">
+          <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           [[${user.userName}]]
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="profile">View Profile</a></li>
+            <li><a class="dropdown-item" href="updateProfile">Edit Profile</a></li>
+            <li><a class="dropdown-item" href="changePassword">Change Password</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </li>
+      
+       
+   
+      </ul>
+      </th:block>
+    
+    </div>
+  </div>
+</nav>
+<ol style="width:75%; margin:auto; background-color: white;">
+
+<div >
+
+<div th:replace="${content}" >
+
+</div>
+
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</ol>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	  crossorigin="anonymous"></script>
+	  
+	  
+	  
+ <footer class="bg-dark text-white pt-5 pb-4">
+<div class="container text-center text-md-left">
+<div class="row text-center text-md-left">
+<div class="col-md-6 col-lg-6 col-xl-6 mx-auto  ">
+<h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Company's Motive </h5>
+
+<p>
+Communicating with existing donors,
+ potential new donors and other stakeholders is critically important in this time of crisis. 
+ <strong>Blood Management System </strong> is working with blood services across 
+ <strong>Bangladesh</strong> to produce necessary information in a specific area.
+</p>
+
+</div>
+
+<div class="col-md-5 col-lg-5 col-xl-5 mx-auto  ">
+<h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact</h5>
+<p>
+<i class="fas fa-home mr-3"> </i> Jahangirnagar University, Savar, Dhaka.
+
+
+</p>
+
+<p>
+<i class="fas fa-envelope mr-3"> </i>  azizulju27@gmail.com, provaju27@gmail.com
+
+</p>
+<p>
+<i class="fas fa-phone mr-3"> </i> +880 01912356567,+880 01980248056
+</p>
+
+
+</div>
+
+
+
+</div>
+<hr class="mb-4">
+<div class="col-md-6 col-lg-6 col-xl-6 mx-auto  ">
+<div class="col-md-7 col-lg-8">
+<p>Copyright @2023 All rights reserved by:
+<a href="#" style="text-decoration: none;">
+<strong class="text-warning"> JU Students</strong>	
+
+
+</a>
+
+
+<div >
+Server Time: 
+<span id="hours">00</span>
+        <span>:</span>
+        <span id="minutes">00</span>
+        <span>:</span>
+        <span id="seconds">00</span>
+        <span id="session">AM</span> 
+       
+</div>
+ 
+
+</p>
+
+<th:block th:if="${user==NULL}">
+<script type="text/javascript" src="script.js">
+    </script>
+    </th:block>
+ <th:block th:if="${user!=NULL}">
+ <script type="text/javascript" src="../script.js">
+    </script>
+ 
+ </th:block>
+    
+   
+
+</div>
+
+
+</div>
+
+</footer>
+
+
+	  
+
+</body>
+</html>

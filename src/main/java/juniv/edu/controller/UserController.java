@@ -1,6 +1,7 @@
 package juniv.edu.controller;
 
 import java.security.Principal;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,11 +46,20 @@ public class UserController {
 	{
 		return "user/home";
 	}
+	
 	@GetMapping("/search")
 	public String search()
 	{
 		return "user/search";
 	}
+	
+	@GetMapping("/invite")
+	public String invite()
+	{
+		return "user/invite_friend";
+		
+	}
+	
 	
 	@GetMapping("/changePassword")
 	public String loadChangePassword()
@@ -66,6 +76,32 @@ public class UserController {
 	public String loadProfile()
 	{
 		return "user/profile";
+	}
+	
+	
+	@PostMapping("/invitetransfer")
+	public String invitetransfer(HttpServletRequest request,Principal p)
+	{
+		String email=p.getName();
+		
+		UserDtls LoginUser=userRepo.findByEmail(email);
+		String friendemail=request.getParameter("frindEmail");
+		LoginUser.setUserfriend(friendemail);
+		
+		
+	/*
+		System.out.println("###############################");
+		
+		System.out.println(email);
+
+		System.out.println(friendemail);
+
+		System.out.println("###############################");
+		
+	*/	
+		
+		userRepo.save(LoginUser);
+		return "redirect:/user/search";
 	}
 
 	@PostMapping("/editProfile")
@@ -117,6 +153,20 @@ public class UserController {
 	
 		if(unioncheck==1) {
 			List<UserDtls>list= service.findByUserUnionAndUserBloodGroupAndStatus(union,userBloodGroup,status);
+			
+			/*
+			  HashMap<Integer, Integer> mp = new HashMap<Integer, Integer>();
+			 
+			  for(UserDtls b:list){  
+		
+				System.out.println(b.getUserName());
+			 }
+			
+			
+			
+			*/
+			
+			
 			return new ModelAndView("user/blood_donner","user_dtls",list);
 		}
 		else if(thanacheck==1)
@@ -192,5 +242,7 @@ public class UserController {
 		
 		return "redirect:/user/changePassword";
 	}
+	
+
 
 }

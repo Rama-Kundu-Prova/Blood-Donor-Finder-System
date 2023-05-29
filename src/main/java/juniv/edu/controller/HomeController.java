@@ -64,6 +64,9 @@ public class HomeController {
 		return "register";
 	}
 	
+
+
+	
 	
 	@PostMapping("/createUser")
 	public String createUser(@ModelAttribute UserDtls user,HttpServletRequest request) {

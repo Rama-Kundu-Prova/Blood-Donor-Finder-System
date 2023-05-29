@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+	
+	
+	<div class="card">
+  <div class="card-header text-center fs-4">
+ <h1>Search Blood Donors</h1>
+  </div>
+
+
+	<div class="card-body">
+	
+
+<form action="finddonner" method="post">
+
+    <div class="row g-3">
+		
+		<div class="col-sm-2" >
+            <label for="">Division</label>
+            <select class="form-control" name="userDivision" id="userDivision" onchange="selectDistrict(this.id,'userDistrict')">
+                <option value="">--Choose Division</option>
+                <option value="Barishal">Barishal</option>
+                <option value="Chittagong">Chittagong</option>
+                <option value="Dhaka">Dhaka</option>
+                <option value="Khulna">Khulna</option>
+                <option value="Mymensingh">Mymensingh</option>
+                <option value="Rajshahi">Rajshahi</option>
+                <option value="Rangpur">Rangpur</option>
+                <option value="Sylhet">Sylhet</option>
+            </select>
+		</div>
+
+		<div class="col-sm-2">
+            <label for="">District</label>
+            <select class="form-control"  name="userDistrict" id="userDistrict" onchange="selectThana(this.id,'userThana')">
+    
+            </select>
+		</div>
+  
+		
+		<div class="col-sm-2" >
+        <label for="">Thana/Upazila</label>
+            <select class="form-control" name="userThana" id="userThana" onchange="selectUnion(this.id,'userUnion')">
+                
+            </select>
+		</div>
+		<div class="col-sm-2">
+            <label for="">Union</label>
+            <select class="form-control" name="userUnion" id="userUnion">
+                
+            </select>
+		</div>
+		<div class="col-sm-2" >
+		<label for="">Blood group</label>
+				<select class="form-control" id="userBloodGroup" type="text" name="userBloodGroup" >
+                <option value="" selected>--Choose blood group</option>
+                <option value="A positive" >A+</option>
+                <option value="A negative " >A-</option>
+                <option value="B positive">B+</option>
+                <option value="B negative" >B-</option>
+                <option value="O positive">O+</option>
+                <option value="O negative" >O-</option>
+                <option value="AB positive">AB+</option>
+                <option value="AB negative" >AB-</option>
+                </select>		
+          </div>
+   
+
+			<div class="col-sm-2" >
+				<br>
+			<button type="submit" class="btn btn-dark">submit</button>
+			<br>
+	<br>
+			</div>
+			
+	 </div>
+		
+	</form>
+</div>
+    <script type="text/javascript" src="../function.js">
+
+    </script>
+
+	
+	
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+
+</section>
+
+</body>
+</html>

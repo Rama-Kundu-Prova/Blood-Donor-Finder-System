@@ -66,7 +66,7 @@ public class UsererviceImpl implements UserService {
 	public void sendVerificationMail(UserDtls user, String url)
 	{
 	
-		String from ="azizuljucse27@gmail.com";
+		String from ="blooddonorverify@gmail.com";
 		String to=user.getEmail();
 		String subject="Account Verification";
 		String content="Dear [[name]],<br>"
@@ -80,12 +80,10 @@ public class UsererviceImpl implements UserService {
 			MimeMessage message=mailSender.createMimeMessage();
 			MimeMessageHelper helper=new MimeMessageHelper(message);
 			
-			helper.setFrom(from,"Azizul");
+			helper.setFrom(from,"Blood Management System");
 			helper.setTo(to);
 			helper.setSubject(subject);
 			content=content.replace("[[name]]", user.getUserName());
-			
-			//String siteUrl=url+"/verify?code="+user.getVerificationCode();
 			String siteUrl="Http://localhost:8080"+"/verify?code="+user.getVerificationCode();
 
 			
@@ -149,6 +147,8 @@ public class UsererviceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 
 

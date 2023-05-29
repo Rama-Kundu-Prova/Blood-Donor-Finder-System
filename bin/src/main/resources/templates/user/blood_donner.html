@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+<section>
+<div style="width:95%; margin:auto; " >
+<div class="card">
+  <div class="card-header text-center fs-4">
+
+<h1>Blood donor information</h1>
+</div>
+<div class="card-body">
+
+<table class="table table-hover text-nowrap">
+<thead>
+<tr>
+<th scope="col" > Name</th>
+<th scope="col"> Age </th>
+<th scope="col"> Phone</th>
+<th scope="col"> Blood Group</th>
+<th scope="col"> Email</th>
+<th scope="col"> Status</th>
+<th scope="col"> Gender </th>
+<th scope="col"> Division</th>
+<th scope="col"> District</th>
+<th scope="col"> Thana</th>
+<th scope="col"> Union</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr th:each ="b: ${user_dtls}">
+
+<td th:text= "${b.userName}"></td>
+<td th:text= "${b.userAge}"></td>
+<td th:text= "${b.userPhone}"></td>
+<td th:text= "${b.userBloodGroup}"></td>
+<td th:text= "${b.email}"></td>
+<td th:text= "${b.status}"></td>
+<td th:text= "${b.usergender}"></td>
+<td th:text= "${b.userDivision}"></td>
+<td th:text= "${b.userDistrict}"></td>
+<td th:text= "${b.userThana}"></td>
+<td th:text= "${b.userUnion}"></td>
+
+</tr>
+
+
+
+
+
+
+
+</table>
+
+
+</div>
+</div>
+	
+	</div>
+	 <br>
+ <br>
+ <br>
+ <br>
+ <br>
+	<br>
+ <br>
+
+</section>
+
+</body>
+</html>

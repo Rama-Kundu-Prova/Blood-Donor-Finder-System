@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" 
+th:replace="base::layout(~{::section})">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<section style="font-family: 'Times New Roman', serif;">
+	
+	<div style="width:95%; margin:auto;">
+<h1><div class="display-4 fw-bold" data-aos="fade-up"> Hi, <span class="text-brand" style="color: blue;">[[${user.userName}]]</span></div></h1>
+<h4 >Welcome to your profile.</h4>
+<hr>
+
+	<h4 class="display-9 " data-aos="fade-up">Your are [[${user.userAge}]] years old.</h4>
+	<h4>Your are using [[${user.userPhone}]] number right now.</h4>
+	<h4>Your Blood Group: [[${user.userBloodGroup}]]</h4>
+	
+	<h4>Your Email: [[${user.email}]]</h4>
+	<h4>You are  [[${user.status}]] to donate blood right now.</h4>
+	<h4>You are a [[${user.usergender}]]</h4>
+		<h4> You are from [[${user.userUnion}]] Union,[[${user.userThana}]], [[${user.userDistrict}]] 
+		District,[[${user.userDivision}]] Division in bangladesh </h4>
+	
+	
+	
+	</div>
+		
+		
+
+	</section>
+
+</body>
+</html>

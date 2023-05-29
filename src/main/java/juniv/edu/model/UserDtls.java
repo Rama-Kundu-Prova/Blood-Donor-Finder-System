@@ -31,6 +31,21 @@ public class UserDtls {
 	private String role;
 	private boolean enable;
 	private String verificationCode;
+	private String userfriend;
+
+	/**
+	 * @return the userfriend
+	 */
+	public String getUserfriend() {
+		return userfriend;
+	}
+
+	/**
+	 * @param userfriend the userfriend to set
+	 */
+	public void setUserfriend(String userfriend) {
+		this.userfriend = userfriend;
+	}
 
 	public boolean isEnable() {
 		return enable;
